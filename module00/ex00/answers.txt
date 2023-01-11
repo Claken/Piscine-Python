@@ -1,0 +1,4 @@
+python -m pip list
+python -m pip show numpy
+
+pip install numpy
