@@ -11,8 +11,10 @@ OK TA 'MERE'
 !!!
 		"""
 		s1 = str("je fais ce que je 'veux'")
+		s2 = s1.replace('veux', 'peux')
 		print(s)
 		print(s1)
+		print(s2)
 		
 		print(s1[0:2])
 		print(s1[3:7])
