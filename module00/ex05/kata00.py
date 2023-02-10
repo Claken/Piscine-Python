@@ -1,5 +1,5 @@
 # Put this at the top of your kata00.py file
-kata = (75,45454,21)
+kata = (75,44,21)
 
 if __name__ == '__main__':
 	base_string = "The 3 numbers are: {0}, {1}, {2}"
