@@ -26,5 +26,7 @@ if __name__ == '__main__':
             if integer02 != 0:
                 div = integer01 / integer02
                 mod = integer01 % integer02
-            print("Quotient  : " + (str(div) if integer02 != 0 else "ERROR (division by zero)"))
-            print("Remainer  : " + (str(mod) if integer02 != 0 else "ERROR (modulo by zero)"))
+            print("Quotient  : " + (str(div) if integer02 != 0
+                                    else "ERROR (division by zero)"))
+            print("Remainer  : " + (str(mod) if integer02 != 0
+                                    else "ERROR (modulo by zero)"))
