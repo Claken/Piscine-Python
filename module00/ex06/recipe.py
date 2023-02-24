@@ -18,14 +18,23 @@ def add_a_recipe():
     name = input("Enter a name: \n")
     ingredients = []
     ingredient = "test"
-    print("Enter ingredients (type ENTER without writing when you done): \n")
+    print("Enter ingredients (type ENTER without writing when you done):")
+
     while ingredient != "":
-        test = input()
-        if test == "":
+        ingredient = input()
+        if ingredient == "":
             continue
-        ingredients.append(test)
+        ingredients.append(ingredient)
+
     meal = input("Enter a meal type: \n")
-    time = int(input("Enter a preparation time: \n"))
+    
+    time = -1
+    while time <= 0:
+        try:
+            time = int(input("Enter a preparation time (superior to zero): \n"))
+        except ValueError:
+            print("PLEASE TYPE A INTEGER")
+            
     cookbook[name] = {'ingredients' : ingredients, 'meal' : meal, 'prep_time' : time}
 
 if __name__ == "__main__":
