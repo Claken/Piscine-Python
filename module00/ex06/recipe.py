@@ -9,11 +9,14 @@ def print_recipe_names():
         print(names)
 
 def print_recipe_details(name):
-    recipe = cookbook[name]
-    print("\nRecipe for {0}:".format(name))
-    print("     Ingredients list: {0}".format(recipe['ingredients']))
-    print("     To be eaten for {0}".format(recipe['meal']))
-    print("     Takes {0} minutes of cooking.\n".format(recipe['prep_time']))
+    try:
+        recipe = cookbook[name]
+        print("\nRecipe for {0}:".format(name))
+        print("     Ingredients list: {0}".format(recipe['ingredients']))
+        print("     To be eaten for {0}".format(recipe['meal']))
+        print("     Takes {0} minutes of cooking.\n".format(recipe['prep_time']))
+    except KeyError:
+        print("\nThis recipe is not in the cookbook.")
 
 def delete_recipe(name):
     try:
@@ -69,7 +72,8 @@ if __name__ == "__main__":
                 theInput = input("Please enter a recipe name to delete: \n>> ")
                 delete_recipe(theInput)
             elif option == 3:
-                print_recipe_details('Cake')
+                theInput = input("Please enter a recipe name to print: \n>> ")
+                print_recipe_details(theInput)
             elif option == 4:
                 print("\n")
                 print(cookbook)
