@@ -9,10 +9,18 @@ def print_recipe_names():
         print(names)
 
 def print_recipe_details(name):
-    print(cookbook[name])
+    recipe = cookbook[name]
+    print("\nRecipe for {0}:".format(name))
+    print("     Ingredients list: {0}".format(recipe['ingredients']))
+    print("     To be eaten for {0}".format(recipe['meal']))
+    print("     Takes {0} minutes of cooking.\n".format(recipe['prep_time']))
 
 def delete_recipe(name):
-    del cookbook[name]
+    try:
+        del cookbook[name]
+        print("\nThis recipe has been successfully deleted.")
+    except KeyError:
+        print("\nThis recipe is not in the cookbook.")
 
 def add_a_recipe():
     name = input("Enter a name: \n")
@@ -50,20 +58,24 @@ if __name__ == "__main__":
     4: Print the cookbook
     5: Quit"""
         )
-        option = int(input("Please select an option: \n>> "))
-        if option == 1:
-            add_a_recipe()
-        elif option == 2:
-            theInput = input("Please enter a recipe name to delete: \n>> ")
-            delete_recipe(theInput)
-        elif option == 3:
-            print("")
-        elif option == 4:
-            print("\n")
-            print(cookbook)
-            print("\n")
-        elif option == 5:
-            print("\nCookbook closed. Goodbye !")
-        else:
+        try:
+            option = int(input("Please select an option: \n>> "))
+        except ValueError:
             print("\nSorry, this option does not exist.")
+        else:
+            if option == 1:
+                add_a_recipe()
+            elif option == 2:
+                theInput = input("Please enter a recipe name to delete: \n>> ")
+                delete_recipe(theInput)
+            elif option == 3:
+                print_recipe_details('Cake')
+            elif option == 4:
+                print("\n")
+                print(cookbook)
+                print("\n")
+            elif option == 5:
+                print("\nCookbook closed. Goodbye !")
+            else:
+                print("\nSorry, this option does not exist.")
 
