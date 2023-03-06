@@ -38,10 +38,32 @@ def add_a_recipe():
     cookbook[name] = {'ingredients' : ingredients, 'meal' : meal, 'prep_time' : time}
 
 if __name__ == "__main__":
-    """ print_recipe_details('Sandwich')
-    print_recipe_details('Cake')
-    print_recipe_details('Salad')
-    delete_recipe('Cake')
-    print_recipe_names() """
-    add_a_recipe()
-    print(cookbook)
+    option = 0
+    theInput = ""
+    print("Welcome to the Python Cookbook !")
+    while option != 5:
+        print(
+            """List of available options:
+    1: Add a recipe
+    2: Delete a recipe
+    3: Print a recipe
+    4: Print the cookbook
+    5: Quit"""
+        )
+        option = int(input("Please select an option: \n>> "))
+        if option == 1:
+            add_a_recipe()
+        elif option == 2:
+            theInput = input("Please enter a recipe name to delete: \n>> ")
+            delete_recipe(theInput)
+        elif option == 3:
+            print("")
+        elif option == 4:
+            print("\n")
+            print(cookbook)
+            print("\n")
+        elif option == 5:
+            print("\nCookbook closed. Goodbye !")
+        else:
+            print("\nSorry, this option does not exist.")
+
