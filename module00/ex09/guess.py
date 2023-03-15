@@ -24,7 +24,7 @@ Good luck!
 			if attempts == 1:
 				print("Congratulations! You won on your first try!")
 			else:
-				print("Congratulations! You won in {} attempt.s!".format(attempts))
+				print("Congratulations! You got it!\nYou won in {} attempts!".format(attempts))
 			exit()
 		elif guess > number:
 			print("Too high!")
