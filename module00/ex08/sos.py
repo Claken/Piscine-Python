@@ -40,6 +40,7 @@ CHARS_TO_MORSE = {
     ' ': '/'
 }
 
+
 def concatenateStrings(strings):
     result = ""
     str_len = len(strings)
@@ -49,6 +50,7 @@ def concatenateStrings(strings):
             result += " "
     return result
 
+
 def checkString(string):
     for char in string:
         try:
@@ -57,14 +59,17 @@ def checkString(string):
             return False
     return True
 
+
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python3 sos.py <alphanum string with space(s) (a-z, A-Z, 0-9)>")
+        print("Usage: python3 sos.py <alphanum string with space(s) \
+(a-z, A-Z, 0-9)>")
     else:
         oneString = concatenateStrings(sys.argv[1:])
         oneString = oneString.upper()
-        if checkString(oneString) == False:
-            print("Error: characters in string must be spaces and alphanumeric (a-z, A-Z, 0-9)")
+        if checkString(oneString) is False:
+            print("Error: characters in string must be spaces and \
+alphanumeric (a-z, A-Z, 0-9)")
         else:
             for char in oneString:
                 print(CHARS_TO_MORSE[char], end=" ")

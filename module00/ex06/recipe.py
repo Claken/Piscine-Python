@@ -1,12 +1,17 @@
-cookbook = {'Sandwich': {'ingredients': ['ham', 'bread', 'cheese', 'tomatoes'],'meal':'lunch', 'prep_time': 10}, 
-            'Cake': {'ingredients': ['flour', 'sugar', 'eggs'], 'meal': 'dessert', 'prep_time': 60},
-            'Salad': {'ingredients': ['avocado', 'arugula', 'tomatoes', 'spinach'], 'meal': 'lunch', 'prep_time': 15}
+cookbook = {'Sandwich': {'ingredients': ['ham', 'bread', 'cheese', 'tomatoes'],
+            'meal': 'lunch', 'prep_time': 10},
+            'Cake': {'ingredients': ['flour', 'sugar', 'eggs'],
+                    'meal': 'dessert', 'prep_time': 60},
+            'Salad': {'ingredients': ['avocado', 'arugula', 'tomatoes',
+            'spinach'], 'meal': 'lunch', 'prep_time': 15}
 }
+
 
 def print_recipe_names():
     receplist = list(cookbook)
     for names in receplist:
         print(names)
+
 
 def print_recipe_details(name):
     try:
@@ -18,12 +23,14 @@ def print_recipe_details(name):
     except KeyError:
         print("\nThis recipe is not in the cookbook.")
 
+
 def delete_recipe(name):
     try:
         del cookbook[name]
         print("\nThis recipe has been successfully deleted.")
     except KeyError:
         print("\nThis recipe is not in the cookbook.")
+
 
 def add_a_recipe():
     name = input("Enter a name: \n")
@@ -38,7 +45,7 @@ def add_a_recipe():
         ingredients.append(ingredient)
 
     meal = input("Enter a meal type: \n")
-    
+
     time = -1
     while time <= 0:
         try:
@@ -46,7 +53,9 @@ def add_a_recipe():
         except ValueError:
             print("PLEASE TYPE A INTEGER")
             
-    cookbook[name] = {'ingredients' : ingredients, 'meal' : meal, 'prep_time' : time}
+    cookbook[name] = {'ingredients': ingredients,
+    'meal': meal, 'prep_time': time}
+
 
 if __name__ == "__main__":
     option = 0
@@ -82,4 +91,3 @@ if __name__ == "__main__":
                 print("\nCookbook closed. Goodbye !")
             else:
                 print("\nSorry, this option does not exist.")
-
