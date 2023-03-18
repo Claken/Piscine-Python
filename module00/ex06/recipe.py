@@ -1,10 +1,9 @@
 cookbook = {'Sandwich': {'ingredients': ['ham', 'bread', 'cheese', 'tomatoes'],
-            'meal': 'lunch', 'prep_time': 10},
+                         'meal': 'lunch', 'prep_time': 10},
             'Cake': {'ingredients': ['flour', 'sugar', 'eggs'],
-                    'meal': 'dessert', 'prep_time': 60},
+                     'meal': 'dessert', 'prep_time': 60},
             'Salad': {'ingredients': ['avocado', 'arugula', 'tomatoes',
-            'spinach'], 'meal': 'lunch', 'prep_time': 15}
-}
+                      'spinach'], 'meal': 'lunch', 'prep_time': 15}}
 
 
 def print_recipe_names():
@@ -19,7 +18,8 @@ def print_recipe_details(name):
         print("\nRecipe for {0}:".format(name))
         print("     Ingredients list: {0}".format(recipe['ingredients']))
         print("     To be eaten for {0}".format(recipe['meal']))
-        print("     Takes {0} minutes of cooking.\n".format(recipe['prep_time']))
+        print("     Takes {0} minutes of cooking.\
+\n".format(recipe['prep_time']))
     except KeyError:
         print("\nThis recipe is not in the cookbook.")
 
@@ -49,12 +49,13 @@ def add_a_recipe():
     time = -1
     while time <= 0:
         try:
-            time = int(input("Enter a preparation time (superior to zero): \n"))
+            time = int(input("Enter a preparation time \
+(superior to zero): \n"))
         except ValueError:
             print("PLEASE TYPE A INTEGER")
-            
+
     cookbook[name] = {'ingredients': ingredients,
-    'meal': meal, 'prep_time': time}
+                      'meal': meal, 'prep_time': time}
 
 
 if __name__ == "__main__":
