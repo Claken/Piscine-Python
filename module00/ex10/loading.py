@@ -2,7 +2,7 @@ from tqdm import tqdm
 from time import sleep
 
 def ft_progress(listeuh):
-    for i in tqdm(listeuh, desc="ETA: ", ascii=' >=', ncols=100):
+    for i in tqdm(listeuh, desc="ETA: ", ascii=' >=', ncols=100, bar_format="{desc}{remaining} [{percentage:3.0f}%][{bar}] {n_fmt}/{total_fmt} | elapsed time {elapsed_s}"):
         yield i
         pass
 
@@ -11,6 +11,6 @@ if __name__ == "__main__":
     ret = 0
     for elem in ft_progress(listeuh):
         ret += (elem + 3) % 5
-        sleep(0.001)
+        sleep(0.01)
     print()
     print(ret)
