@@ -1,6 +1,18 @@
 def NULL_not_found(object: any) -> int:
-	if object is None or object is float("NaN") or object is 0 or object is "" or object is False:
-		print(f"{object}: {object} {type(object)}")
+	if object is None:
+		print(f"Nothing: {object} {type(object)}")
+		return 0
+	elif object != object:
+		print(f"Cheese: {object} {type(object)}")
+		return 0
+	elif isinstance(object, int) and object == 0 and object is not False:
+		print(f"Zero: {object} {type(object)}")
+		return 0
+	elif object == "":
+		print(f"Empty: {object} {type(object)}")
+		return 0
+	elif object is False & isinstance(object, bool):
+		print(f"Fake: {object} {type(object)}")
 		return 0
 	else:
 		print("Type not Found")
