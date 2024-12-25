@@ -8,7 +8,8 @@ def text_analyzer(text=None):
     lower characters, punctuation, spaces and digits in a given text.
     """
     if text is None:
-        text = input("What is the text to count ?\n")
+        print("What is the text to count?")
+        text = user_input = sys.stdin.readline()
 
     characters = len(text)
     ups = sum(1 for c in text if c.isupper())
@@ -18,7 +19,7 @@ def text_analyzer(text=None):
     punct = sum(1 for c in text if c in string.punctuation)
     digits = sum(1 for c in text if c.isdigit())
 
-    print("The text contains " + str(characters) + f" character{'s' if characters > 1 else ''}:")
+    print(f"The text contains {str(characters)} character{'s' if characters > 1 else ''}:")
     print(f"- {str(ups)} upper letter{'s' if ups > 1 else ''}")
     print(f"- {str(lows)} lower letter{'s' if lows > 1 else ''}")
     print(f"- {str(punct)} punctuation mark{'s' if punct > 1 else ''}")
