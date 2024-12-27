@@ -1,7 +1,6 @@
 import string
 import sys
 
-
 def text_analyzer(text=None):
     # """
     # This function counts the number of upper characters,
