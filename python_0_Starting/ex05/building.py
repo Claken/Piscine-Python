@@ -3,10 +3,10 @@ import sys
 
 
 def text_analyzer(text=None):
-    """
-    This function counts the number of upper characters,
-    lower characters, punctuation, spaces and digits in a given text.
-    """
+    # """
+    # This function counts the number of upper characters,
+    # lower characters, punctuation, spaces and digits in a given text.
+    # """
     if text is None:
         print("What is the text to count?")
         text = user_input = sys.stdin.readline()
