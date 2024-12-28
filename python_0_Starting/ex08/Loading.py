@@ -1,9 +1,22 @@
+import sys
+
 def ft_tqdm(lst: range) -> None:
-	"""
+    """
+    Mimics the tqdm progress bar using the yield operator.
 	
-	"""
-	maxSize = len(lst)
-	for elem in lst:
-		print(f"{elem}/{maxSize}")
-		yield elem
-    #your code here
+    """
+    total = len(lst)  # Total number of elements in the iterable
+
+    for idx, item in enumerate(lst, start=1):
+        barlen = 50
+        progress = idx / total
+        num_hashes = int(progress * barlen) #Length of the progress bar
+        bar = f"{'█' * num_hashes}{' ' * (barlen - num_hashes)}"
+
+        sys.stdout.write(f"\r{progress * 100:6.0f}%|{bar}| {idx}/{total}")
+        sys.stdout.flush()
+
+        yield item
+
+    # Finalize the progress bar with a newline
+    sys.stdout.write("\n")
