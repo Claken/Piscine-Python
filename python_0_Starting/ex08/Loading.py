@@ -10,8 +10,8 @@ def ft_tqdm(lst: range) -> None:
     for idx, item in enumerate(lst, start=1):
         barlen = 50
         progress = idx / total
-        num_hashes = int(progress * barlen) #Length of the progress bar
-        bar = f"{'█' * num_hashes}{' ' * (barlen - num_hashes)}"
+        num_full_bar = int(progress * barlen)
+        bar = f"{'█' * num_full_bar}{' ' * (barlen - num_full_bar)}"
 
         sys.stdout.write(f"\r{progress * 100:6.0f}%|{bar}| {idx}/{total}")
         sys.stdout.flush()
