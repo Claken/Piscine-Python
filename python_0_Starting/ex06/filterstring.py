@@ -4,6 +4,7 @@ from ft_filter import ft_filter
 def contains_special_characters(s: str) -> bool:
     """
 	Check if a string contains special characters, except for spaces
+	:param s: The string to check.
     """
     for char in s:
         if char.isalnum() is False and char != ' ':
@@ -15,6 +16,8 @@ def ft_filter_string(string: str, integer: int):
 	"""
 	Returns a list of words from "string" that have a length greater than "integer".
 	Words are separated from each other by space characters.
+	:param string: The string to filter.
+	:param integer: The minimum length of the words to keep.
 	"""
 	condition = lambda aString: len(aString) > integer
 	strTab = string.split()
