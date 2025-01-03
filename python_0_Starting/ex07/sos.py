@@ -68,9 +68,9 @@ if __name__ == "__main__":
         oneString = concatenateStrings(sys.argv[1:])
         oneString = oneString.upper()
         if checkString(oneString) is False:
-            print("Error: characters in string must be spaces and \
+            print("AssertionError: characters in string must be spaces and \
 alphanumeric (a-z, A-Z, 0-9)")
         else:
             for char in oneString:
-                print(CHARS_TO_MORSE[char], end=" ")
+                print(CHARS_TO_MORSE[char], end="")
             print("")
