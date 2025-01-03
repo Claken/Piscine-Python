@@ -1,5 +1,6 @@
 import sys
 
+
 def ft_tqdm(lst: range) -> None:
     """
     Mimics the tqdm progress bar using the yield operator.
@@ -18,5 +19,5 @@ def ft_tqdm(lst: range) -> None:
         sys.stdout.flush()
 
         yield item
-        
+
     sys.stdout.write("\n")
