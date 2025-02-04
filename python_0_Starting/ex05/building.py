@@ -41,4 +41,3 @@ if __name__ == '__main__':
             text_analyzer()
     except AssertionError as e:
         print(f"{type(e).__name__}: {e}")
-
