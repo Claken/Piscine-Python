@@ -30,15 +30,13 @@ def ft_filter_string(string: str, integer: int):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 3:
-        print("AssertionError: wrong number of arguments")
-        sys.exit(1)
     try:
+        assert len(sys.argv) == 3, "wrong number of arguments"
         strToFilter = str(sys.argv[1])
+        assert sys.argv[2].isdigit(), "second argument is not an integer"
         length = int(sys.argv[2])
         if (contains_special_characters(strToFilter)):
             sys.exit(1)
         print(ft_filter_string(strToFilter, length))
-    except ValueError:
-        print("AssertionError: the arguments are bad")
-        sys.exit(1)
+    except AssertionError as e:
+        print(f"{type(e).__name__}: {e}")
