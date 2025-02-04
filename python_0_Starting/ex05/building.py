@@ -33,10 +33,12 @@ def text_analyzer(text=None):
 
 
 if __name__ == '__main__':
+    try:
+        assert len(sys.argv) < 3, "more than one argument is provided"
+        if len(sys.argv) == 2:
+            text_analyzer(sys.argv[1])
+        else:
+            text_analyzer()
+    except AssertionError as e:
+        print(f"{type(e).__name__}: {e}")
 
-    if len(sys.argv) > 2:
-        print("AssertionError: wrong number of arguments")
-    elif len(sys.argv) == 2:
-        text_analyzer(sys.argv[1])
-    else:
-        text_analyzer()
