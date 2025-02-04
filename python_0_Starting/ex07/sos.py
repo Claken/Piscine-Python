@@ -61,16 +61,15 @@ def checkString(string):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python3 sos.py <alphanum string with space(s) \
-(a-z, A-Z, 0-9)>")
-    else:
-        oneString = concatenateStrings(sys.argv[1:])
-        oneString = oneString.upper()
+    try:
+        assert len(sys.argv) == 2, "wrong number of arguments"
+        oneString = concatenateStrings(sys.argv[1:]).upper()
         if checkString(oneString) is False:
-            print("AssertionError: characters in string must be spaces and \
-alphanumeric (a-z, A-Z, 0-9)")
+            print("Error: characters in string must be spaces and \
+alphanumeric (a-z, A-Z, 0-9)")      
         else:
             for char in oneString:
                 print(CHARS_TO_MORSE[char], end="")
             print("")
+    except AssertionError as e:
+        print(f"{type(e).__name__}: {e}")
