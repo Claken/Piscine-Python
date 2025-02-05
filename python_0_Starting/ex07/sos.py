@@ -41,16 +41,6 @@ CHARS_TO_MORSE = {
 }
 
 
-def concatenateStrings(strings):
-    result = ""
-    str_len = len(strings)
-    for string in strings:
-        result += string
-        if str_len - strings.index(string) != 1:
-            result += " "
-    return result
-
-
 def checkString(string):
     for char in string:
         try:
@@ -63,7 +53,7 @@ def checkString(string):
 if __name__ == "__main__":
     try:
         assert len(sys.argv) == 2, "wrong number of arguments"
-        oneString = concatenateStrings(sys.argv[1:]).upper()
+        oneString = sys.argv[1].upper()
         if checkString(oneString) is False:
             print("Error: characters in string must be spaces and \
 alphanumeric (a-z, A-Z, 0-9)")
