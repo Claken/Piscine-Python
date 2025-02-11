@@ -1,15 +1,16 @@
+import numpy as np
+
 def slice_me(family: list, start: int, end: int) -> list:
 	
-	familySize = len(family)
-	elemSize = int(sum([len(elem) for elem in family]) / familySize)
+	
+	elemSize = np.mean([len(elem) for elem in family])
 
-	print(f"My shape is : ({familySize}, {elemSize})")
+	print(f"My shape is : ({len(family)}, {elemSize})")
 
 	newList = family[start:end]
 
-	newListSize = len(newList)
-	elemSize = int(sum([len(elem) for elem in newList]) / newListSize)
+	elemSize = int(np.mean([len(elem) for elem in newList]))
 
-	print(f"My new shape is : ({newListSize}, {elemSize})")
+	print(f"My new shape is : ({len(newList)}, {elemSize})")
 
 	return newList
