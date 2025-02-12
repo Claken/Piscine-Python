@@ -1,6 +1,6 @@
 def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
-	"""
-    Calculates the Body Mass Index (BMI) for each given pair of height and weight.
+    """
+    Calculates the Body Mass Index for each given pair of height and weight.
 
     Parameters:
     ------------
@@ -12,26 +12,29 @@ def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int |
     Returns:
     --------
     list[int | float]
-        A list containing the calculated BMI for each individual using the formula: BMI = weight / (height * height).
-
+        A list containing the BMI for each element using the formula:
+        BMI = weight / (height * height).
     """
-	try:
-		assert len(height) == len(weight), "lists are not the same size"
-		assert all((isinstance(item, int) or isinstance(item, float)) for item in height), "not the right type in the height list"
-		assert all((isinstance(item, int) or isinstance(item, float)) for item in weight), "not the right type in the weight list"
-		bmi_list: list[int | float] = [0] * len(height)
-		i: int = 0
-		for w, h in zip(weight, height):
-			bmi_list[i] = w / (h * h)
-			i = i + 1
-		return bmi_list
-	except AssertionError as e:
-		print(f"{type(e).__name__}: {e}")
+    try:
+        assert len(height) == len(weight), "lists are not the same size"
+        hei = all((isinstance(i, int) or isinstance(i, float)) for i in height)
+        assert hei, "not the right type in the height list"
+        wei = all((isinstance(i, int) or isinstance(i, float)) for i in weight)
+        assert wei, "not the right type in the weight list"
+        bmi_list: list[int | float] = [0] * len(height)
+        i: int = 0
+        for w, h in zip(weight, height):
+            bmi_list[i] = w / (h * h)
+            i = i + 1
+        return bmi_list
+    except AssertionError as e:
+        print(f"{type(e).__name__}: {e}")
 
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
-	"""
-    Compares each BMI value against a given limit and returns a list indicating if the BMI exceeds the limit.
+    """
+    Compares each BMI value against a given limit
+    Returns a list indicating if the BMI exceeds the limit.
 
     Parameters:
     ------------
@@ -43,17 +46,19 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     Returns:
     --------
     list[bool]
-        A list containing `True` if the corresponding BMI exceeds the limit, `False` otherwise.
+        A list containing `True` if the corresponding BMI exceeds the limit
+        Otherwise: `False`.
     """
-	try:
-		assert all((isinstance(item, int) or isinstance(item, float)) for item in bmi), "not the right type"
-		assert type(limit) == int, 'not the right type for the limit'
-		limit_list: list[bool] = [False] * len(bmi)
-		i: int = 0
-		for elem in bmi:
-			if elem > limit:
-				limit_list[i] = True
-			i = i + 1
-		return limit_list
-	except AssertionError as e:
-		print(f"{type(e).__name__}: {e}")
+    try:
+        typ = all((isinstance(i, int) or isinstance(i, float)) for i in bmi)
+        assert typ, "not the right type"
+        assert type(limit).__name__ == "int", 'not the right type for limit'
+        limit_list: list[bool] = [False] * len(bmi)
+        i: int = 0
+        for elem in bmi:
+            if elem > limit:
+                limit_list[i] = True
+            i = i + 1
+        return limit_list
+    except AssertionError as e:
+        print(f"{type(e).__name__}: {e}")
