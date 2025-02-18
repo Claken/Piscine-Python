@@ -19,7 +19,7 @@ def slice_me(family: list, start: int, end: int) -> list:
     Returns:
         list: The sliced portion of the original list, containing sublists
         from index `start` to `end - 1`.
-"""
+    """
     try:
         listLen = len(family[0])
         assert type(family).__name__ == "list", "no list provided"
